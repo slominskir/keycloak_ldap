@@ -8,7 +8,7 @@ services:
       interval: 10s
       timeout: 10s
       retries: 3
-      start_period: 60s
+      start_period: 120s
     environment:
       DS_DM_PASSWORD: password
       DS_SUFFIX_NAME: dc=example,dc=com
