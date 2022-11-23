@@ -9,7 +9,7 @@ KEYCLOAK_LDAP_CONNECTION_URL='["ldap://ldap:3389"]'
 KEYCLOAK_USERS_DN='["ou=people,dc=example,dc=com"]'
 KEYCLOAK_BIND_DN='["cn=Directory Manager"]'
 KEYCLOAK_BIND_CREDENTIAL='["password"]'
-KEYCLOAK_USER_OBJECT_CLASSES='["nsPerson","nsAccount","nsOrgPerson","posixAccount"]'
+KEYCLOAK_USER_OBJECT_CLASSES='["person","organizationalPerson","inetorgperson"]'
 KEYCLOAK_KERBEROS_AUTHN='["false"]'
 KEYCLOAK_KERBEROS_FOR_PASS='["false"]'
 
@@ -67,3 +67,9 @@ echo "----------------------"
 echo "| Step D: Sync Users |"
 echo "----------------------"
 ${KEYCLOAK_HOME}/bin/kcadm.sh create -r ${KEYCLOAK_REALM} user-storage/${KEYCLOAK_REALM}-ldap-provider/sync?action=triggerFullSync
+
+
+echo "-------------------------------"
+echo "| Step E: Query for firstName |"
+echo "-------------------------------"
+${KEYCLOAK_HOME}/bin/kcadm.sh get users -r ${KEYCLOAK_REALM} | grep firstName
