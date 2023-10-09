@@ -1,6 +1,6 @@
 services:
   ldap:
-    image: 389ds/dirsrv:2.2
+    image: 389ds/dirsrv:2.4
     hostname: ldap
     container_name: ldap
     healthcheck:
@@ -17,7 +17,7 @@ services:
     entrypoint: /init/entrypoint.sh
 
   keycloak:
-    image: quay.io/keycloak/keycloak:20.0.1
+    image: quay.io/keycloak/keycloak:22.0.4
     depends_on:
       ldap:
         condition: service_healthy

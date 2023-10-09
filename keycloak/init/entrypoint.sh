@@ -10,11 +10,12 @@ echo "--------------------------------------"
 echo "| Step 2: Wait for Keycloak to start |"
 echo "--------------------------------------"
 
-until curl http://keycloak:8080 -sf -o /dev/null;
-do
-  echo $(date) " Still waiting for keycloak to accept requests..."
-  sleep 5
-done
+# Keycloak container no longer has curl installed...
+#until curl http://keycloak:8080 -sf -o /dev/null;
+#do
+#  echo $(date) " Still waiting for keycloak to accept requests..."
+  sleep 30
+#done
 
 echo "---------------------"
 echo "| Step 3: Configure |"
