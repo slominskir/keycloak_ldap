@@ -30,6 +30,7 @@ echo "----------------------------------------"
 ${KEYCLOAK_HOME}/bin/kcadm.sh create components -r ${KEYCLOAK_REALM} -s parentId=${KEYCLOAK_REALM} \
 -s id=${KEYCLOAK_REALM}-ldap-provider -s name=${KEYCLOAK_REALM}-ldap-provider \
 -s providerId=ldap -s providerType=org.keycloak.storage.UserStorageProvider \
+-s config.enabled=true \
 -s config.debug=${KEYCLOAK_DEBUG} \
 -s config.authType='["simple"]' \
 -s config.vendor='["rhds"]' \
